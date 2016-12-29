@@ -63,7 +63,7 @@ export class Page {
 
     static deserialize(str: string): Page {
 
-        var data = Serialization.deserialize(str, [BoxShape, TriangleShape, LineShape, EllipseShape, StrokeShape, Brush, Point]);
+        var data = Serialization.deserialize(str, [BoxShape, TriangleShape, LineShape, EllipseShape, StrokeShape, Brush, Point, Widget]);
 
         return new Page(data.title, data.creationDate, data.widgets, data.shapes);
     }
@@ -79,6 +79,7 @@ export class Page {
             );
 
     }
+
 
 
 }

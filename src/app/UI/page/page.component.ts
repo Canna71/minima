@@ -29,7 +29,7 @@ declare var _;
 @Component({
     selector: 'm-page',
     template: require('./page.component.html'),
-    styles:[require('./page.component.less')],
+    styles: [require('./page.component.less')],
 
 })
 export class PageComponent implements OnInit, AfterViewInit {
@@ -86,7 +86,7 @@ export class PageComponent implements OnInit, AfterViewInit {
 
 
     constructor(private container: ElementRef, private cfr: ComponentFactoryResolver, private viewContainer: ViewContainerRef,
-    private storage:StorageService) {
+        private storage: StorageService) {
         console.log('Page Built');
 
     }
@@ -205,18 +205,17 @@ export class PageComponent implements OnInit, AfterViewInit {
 
     }
 
-    onWidgetClicked(w:Widget){
+    onWidgetClicked(w: Widget) {
         this.select(w);
-        
+
     }
 
     onPageChanged(skipHistory?) {
         console.log('page changed');
         if (!this._suspendChangeNotifications) {
             //minima.save();
-            console.log("TODO: minima.save()");
-            this.page.shapes = this.shapes;
-            this.page.save();
+
+            this.save();
             if (!skipHistory) {
                 return this.storeHistory();
             }
@@ -263,6 +262,10 @@ export class PageComponent implements OnInit, AfterViewInit {
         this.onResize();
     }
 
+    resetHistory() {
+        this.history.length = 0;
+        this.currentState = 0;
+    }
 
     storeHistory() {
         // this.currentState++;
@@ -289,18 +292,17 @@ export class PageComponent implements OnInit, AfterViewInit {
         data.creationDate = this.creationDate;
 
         this.canvas.save(data);
-        
+
         this.querywidgets.forEach(
-            w => w.updateModel()  
+            w => w.updateModel()
         );
 
-        data.widgetsData = this.widgets.map(w =>
-        {
+        data.widgetsData = this.widgets.map(w => {
             var wdata = {};
             w.save(wdata);
             return wdata;
         });
-       
+
         return data;
     }
 
@@ -311,26 +313,37 @@ export class PageComponent implements OnInit, AfterViewInit {
         this.creationDate = data.creationDate;
         this.canvas.restore(data);
 
-        for (let wd of data.widgetsData){
+        for (let wd of data.widgetsData) {
             var w = new Widget(wd.position);
             w.restore(wd);
-            
+
             this.widgets.push(w);
         }
     }
 
-    deserialize() {
+    deserialize(str: string) {
         console.log("TODO: deserialize");
+        var page = Page.deserialize(str);
+        console.log(page);
     }
 
     //TODO: move to Page
-    save(){
-        
+    save() {
+        console.log("TODO: minima.save()");
+        this.page.shapes = this.shapes;
+        this.page.save();
+    }
+
+    load(str: string) {
+        console.log("TODO: load from string", str);
+        this.resetHistory();
+        this.deserialize(str);
+        return this.storeHistory();
     }
 
     select(widget: Widget) {
         this.widgets.forEach(w => {
-            if(w === widget) w.selected = true;
+            if (w === widget) w.selected = true;
             else w.selected = false;
         })
 

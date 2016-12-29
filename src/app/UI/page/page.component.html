@@ -1,0 +1,9 @@
+
+
+<!--<div #container class="container" >-->
+   
+    <m-canvas #canvas></m-canvas>
+    <m-widget *ngFor="let widget of widgets" [model]="widget" [page]="this" (clickWidget)="onWidgetClicked($event)" m-resizable ></m-widget>
+
+
+<!--</div>-->

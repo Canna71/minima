@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    
+    "lib": ["es6", "dom"],
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src",
+    "sourceMap": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ]
+  }
+}

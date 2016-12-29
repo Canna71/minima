@@ -1,0 +1,40 @@
+:host{
+
+  position:absolute;
+//   position: relative;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+
+  overflow:auto;
+  z-index: 0;
+
+  &.resizing {
+
+    cursor: ew-resize;
+
+    .minima-widget {
+      pointer-events: none;
+    }
+  }
+  
+  height: auto;
+  width: 100%;
+  display: block;
+}
+
+.minima-canvas {
+  position: absolute;
+  //background-color: antiquewhite;
+  z-index: 0;
+
+  
+
+}
+
+.minima-tmpcanvas {
+  position: absolute;
+
+  z-index: 0;
+}

@@ -1,0 +1,30 @@
+TODO:
+    ☐ shapes are not serialized!
+    ✔ widget.position should not be a clientrect! @done (28/12/2016, 18:14:16)
+    ☐ delete a widget
+    ✔ Study the container components @done (28/12/2016, 18:14:22)
+        ✔ in particular with multiple children (and the query stuff) @done (28/12/2016, 18:14:23)
+    ☐ Remove a htmlblock if empty (like minima 1)
+    ✔ Focus the newly created htmlblock @done (28/12/2016, 18:14:28)
+    ☐ How to inject the model?
+    ✔ Make Widget active until blurred @done (28/12/2016, 18:14:32)
+    ☐ Il drag non funziona bene
+
+
+
+
+
+
+
+Some links:
+    https://engineering-game-dev.com/2016/08/19/angular-2-dynamically-injecting-components/amp/
+    How to place a dynamic component in a container
+    http://stackoverflow.com/questions/37185820/how-to-place-a-dynamic-component-in-a-container
+
+    https://github.com/angular/angular/issues/11030
+    http://blog.mgechev.com/2016/01/23/angular2-viewchildren-contentchildren-difference-viewproviders/
+
+    https://teropa.info/blog/2016/03/06/writing-an-angular-2-template-directive.html
+    
+Documentation links:
+    Template Syntax https://angular.io/docs/ts/latest/guide/template-syntax.html#!#other-bindings

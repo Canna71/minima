@@ -9,7 +9,6 @@ import LineShape from '../canvas/shapes/LineShape';
 import { TriangleShape } from '../canvas/shapes/TriangleShape';
 import { BoxShape } from '../canvas/shapes';
 import Serialization from '../logic/Serialization';
-import Canvas from '../canvas/canvas';
 import BaseShape from '../canvas/shapes/BaseShape';
 
 
@@ -31,20 +30,24 @@ export class Page {
         return this._widgets;
     }
 
-    get shapes() {
+    get shapes():BaseShape[] {
         return this._shapes;
+    }
+
+    set shapes(value:BaseShape[]) {
+        this._shapes=value;
     }
 
     serialize(): any {
 
-        
-           var widgetsData = [];
-           for(var i = 0; i<this._widgets.length;i++){
-               var data = {};
-               this._widgets[i].save(data);
-               widgetsData.push(data);
-           }
-           
+
+        var widgetsData = [];
+        for (var i = 0; i < this._widgets.length; i++) {
+            var data = {};
+            this._widgets[i].save(data);
+            widgetsData.push(data);
+        }
+
         var str = Serialization.serialize(
             {
                 title: this.title,

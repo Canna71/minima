@@ -1,4 +1,4 @@
-import Canvas from '../canvas';
+import { CanvasComponent } from '../../UI/canvas/canvas.component';
 import Brush from '../Brush';
 import Point from '../Point';
 import BaseShape from './BaseShape';
@@ -8,7 +8,7 @@ import BaseShape from './BaseShape';
 
 
 class Eraser extends BaseShape {
-    private _canvas:Canvas;
+    private _canvas:CanvasComponent;
     private _pos:Point;
     private _shapes;
     private _erased;

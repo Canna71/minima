@@ -99,7 +99,7 @@ export class PageComponent implements OnInit, AfterViewInit {
 
 
     ngOnInit() {
-        this.page = new Page(this.storage);
+        this.page = new Page(this.storage, this.title, this.creationDate, [], this.shapes);
         //console.log('page created ', this.page);
         //console.log('container: ',$(this.container.nativeElement))
 
@@ -202,6 +202,7 @@ export class PageComponent implements OnInit, AfterViewInit {
         this.canvas.onResize();
         // this.canvas.resizeToParent();
         //this.resizeToParent();
+
     }
 
     onWidgetClicked(w:Widget){
@@ -214,6 +215,7 @@ export class PageComponent implements OnInit, AfterViewInit {
         if (!this._suspendChangeNotifications) {
             //minima.save();
             console.log("TODO: minima.save()");
+            this.page.shapes = this.shapes;
             this.page.save();
             if (!skipHistory) {
                 return this.storeHistory();

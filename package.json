@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "electron": "electron src/app"
+    "prepare": "cp -a src/app/main.js src/app/package.json  build",
+    "electron": "npm run prepare && electron build"
   },
   "author": "Auth0",
   "license": "MIT",
@@ -24,6 +25,7 @@
     "file-loader": "^0.8.5",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.15.0",
+    "script-loader": "^0.7.0",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
     "raw-loader": "^0.5.1",

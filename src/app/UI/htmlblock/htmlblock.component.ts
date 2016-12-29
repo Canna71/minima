@@ -53,7 +53,7 @@ export class SelectionWrapper {
 @Component({
     selector: 'm-htmlblock',
     templateUrl: ('./htmlblock.component.html'),
-    styleUrls: [('./htmlblock.component.less')],
+    styles: [require('./htmlblock.component.less')],
 
 })
 export class HtmlBlockComponent implements OnDestroy, OnInit, IWidgetContent {

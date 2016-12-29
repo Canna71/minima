@@ -15,7 +15,8 @@ module.exports = {
       'reflect-metadata',
       '@angular/core'
     ],
-    'app': './src/main'
+    'app': './src/main',
+    'styles': ['./src/styles/minima.less']
   },
 
   output: {
@@ -27,7 +28,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['','.ts','.js','.json', '.css', '.html']
+    extensions: ['','.ts','.js','.json', '.css', '.html', '.less']
   },
 
   module: {
@@ -57,12 +58,22 @@ module.exports = {
       },
       {
         test: /\.less$/,
+        exclude: [ /node_modules/, /styles/ ],
        loaders: ['raw-loader',  'less-loader']
+      },
+      {
+        test: /\.less$/,
+        include: [ /styles/ ],
+       loaders: ['style-loader','css-loader',  'less-loader']
       }
     ]
   },
 
   plugins: [
+     new HtmlWebpackPlugin({
+                template: 'src/app/index.html',
+                chunksSortMode: 'dependency'
+            }),
     new CommonsChunkPlugin({ name: 'angular2', filename: 'angular2.js', minChunks: Infinity }),
     new CommonsChunkPlugin({ name: 'common',   filename: 'common.js' }),
     new ExtractTextPlugin('app.bundle.css')

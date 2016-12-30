@@ -194,7 +194,7 @@ export class WidgetComponent implements OnChanges, AfterViewInit, OnInit, OnDest
     }
 
     onModelChanged(){
-        console.log("onModelChanged");
+//         console.log("onModelChanged");
         this.selected = this.model.selected;
         this.model.contentData = this.model.contentData;
         
@@ -209,7 +209,7 @@ export class WidgetComponent implements OnChanges, AfterViewInit, OnInit, OnDest
 
     @HostListener('click',["$event"])
     onClick(e) {
-        console.log("Widget clicked");
+//         console.log("Widget clicked");
         this.clickWidget.emit(this.model);
     }
 

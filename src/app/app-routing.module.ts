@@ -18,7 +18,11 @@ const routes: Routes = [
     component: MainComponent,
     
   },
- 
+ {
+    path: 'main/:path',
+    component: MainComponent,
+    
+  },
 ];
 
 

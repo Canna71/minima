@@ -308,7 +308,7 @@ export class PageComponent implements OnInit, AfterViewInit {
     }
 
     restore(data) {
-        console.log("TODO: restore");
+        console.log("page.component.restore");
         this.reset();
         this.title = data.title;
         this.creationDate = data.creationDate;
@@ -346,7 +346,7 @@ export class PageComponent implements OnInit, AfterViewInit {
     }
 
     load(str: string) {
-        console.log("TODO: load from string", str);
+        console.log("page.component.load load from string", str);
         this.resetHistory();
         this.deserialize(str);
         return this.storeHistory();

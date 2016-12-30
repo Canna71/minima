@@ -1,5 +1,6 @@
 TODO:
-    ☐ shapes are not serialized!
+    ☐ Force component redraw after loading the page (widgets)
+    ✔ shapes are not serialized! @done (30/12/2016, 18:56:02)
     ✔ widget.position should not be a clientrect! @done (28/12/2016, 18:14:16)
     ☐ delete a widget
     ✔ Study the container components @done (28/12/2016, 18:14:22)

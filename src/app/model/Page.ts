@@ -53,7 +53,7 @@ export class Page {
                 title: this.title,
                 creationDate: this.creationDate,
                 shapes: this.shapes,
-                widgets: widgetsData
+                widgetsData: widgetsData
             });
         //TODO: transform the array into a map for improved performance
         //var ob = Serialization.deserialize(str,[BoxShape, TriangleShape, LineShape, EllipseShape, StrokeShape, Brush, Point]);
@@ -61,11 +61,11 @@ export class Page {
         return str;
     }
 
-    static deserialize(str: string): Page {
+    static deserialize(str: string): any {
 
         var data = Serialization.deserialize(str, [BoxShape, TriangleShape, LineShape, EllipseShape, StrokeShape, Brush, Point, Widget]);
 
-        return new Page(data.title, data.creationDate, data.widgets, data.shapes);
+        return data;
     }
 
     save() {

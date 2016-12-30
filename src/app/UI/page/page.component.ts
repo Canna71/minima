@@ -159,6 +159,7 @@ export class PageComponent implements OnInit, AfterViewInit {
     onPopState(state) {
         if (state !== null) {
             this.restore(state);
+            this.save();
         }
     }
 
@@ -312,19 +313,29 @@ export class PageComponent implements OnInit, AfterViewInit {
         this.title = data.title;
         this.creationDate = data.creationDate;
         this.canvas.restore(data);
-
+        /*
+        this.widgets = data.widgetsData.map((ws) => {
+            var w = new Widget(wd.position);
+            w.restore(wd);
+            return w;
+        });
+        */
+        
         for (let wd of data.widgetsData) {
+
             var w = new Widget(wd.position);
             w.restore(wd);
 
             this.widgets.push(w);
         }
+        
     }
 
     deserialize(str: string) {
-        console.log("TODO: deserialize");
-        var page = Page.deserialize(str);
-        console.log(page);
+        console.log("page.component.deserialize");
+        var data = Page.deserialize(str);
+        this.restore(data);
+        console.log(data);
     }
 
     //TODO: move to Page

@@ -6,10 +6,10 @@
   "scripts": {
     "build": "webpack --progress --profile --colors --display-error-details --display-cached",
     "watch": "webpack --watch --progress --profile --colors --display-error-details --display-cached",
-    "prepare": "copyfiles -a src/app/main.js src/app/package.json  build",
+    "prepare": "copyfiles -f src/app/package.json src/app/main.js build",
     "electron": "npm run prepare && electron build",
     "dev": "concurrent --kill-others \"npm run watch\" \"npm run electron\"  ",
-    "rebuild" : "electron-rebuild -f -w electron-spellchecker"
+    "rebuild": "electron-rebuild -f -w electron-spellchecker"
   },
   "author": "Auth0",
   "license": "MIT",
@@ -22,7 +22,6 @@
     "concurrently": "^3.1.0",
     "core-js": "^2.4.1",
     "css-loader": "^0.23.1",
-    "electron-prebuilt": "^1.2.0",
     "electron-rebuild": "^1.4.0",
     "es6-shim": "^0.35.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -51,6 +50,7 @@
     "@angular/router": "3.4.1",
     "bluebird": "^3.4.7",
     "copyfiles": "^1.0.0",
+    "electron": "^1.4.13",
     "electron-spellchecker": "^0.7.1",
     "jquery": "^3.1.1",
     "lodash": "^4.17.3",

@@ -320,14 +320,16 @@ export class PageComponent implements OnInit, AfterViewInit {
             return w;
         });
         */
-        
-        for (let wd of data.widgetsData) {
+        if(data.widgetsData) {
+            for (let wd of data.widgetsData) {
 
-            var w = new Widget(wd.position);
-            w.restore(wd);
+                var w = new Widget(wd.position);
+                w.restore(wd);
 
-            this.widgets.push(w);
+                this.widgets.push(w);
+            }
         }
+
         
     }
 

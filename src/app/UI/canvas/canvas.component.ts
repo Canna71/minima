@@ -335,7 +335,7 @@ export class CanvasComponent implements OnInit, AfterViewInit {
     restore(data){
         //var shapes = Serialization.deserialize(str, [BoxShape, TriangleShape, LineShape, EllipseShape, StrokeShape, Brush, Point]);
         
-        this._shapes = data.shapes;
+        this._shapes = data.shapes || [];
         this.redraw();
     }
 
